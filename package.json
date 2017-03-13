@@ -1,0 +1,25 @@
+{
+  "name": "s3-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/bin/www",
+  "scripts": {
+    "start": "concurrently \"nodemon -r dotenv/config\" && \"lite-server\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.27.0",
+    "body-parser": "^1.17.1",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "express-validator": "^3.1.2",
+    "helmet": "^3.5.0",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.4.0",
+    "lite-server": "^2.3.0"
+  }
+}
