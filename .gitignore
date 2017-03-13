@@ -13,3 +13,5 @@ coverage
 !karma.conf.js
 !bs-config.js
 stats.json
+rootkey.csv
+bower_components

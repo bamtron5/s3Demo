@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app" strict-di>
   <head>
     <meta charset="utf-8">
     <title></title>
-    <base href="/">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
-    <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-    <link rel="stylesheet" href="client/styles/styles.css">
   </head>
   <body>
-    <ui-view class="fp"></ui-view>
-    <script src="client/dist/bundle.js"></script>
+    <home></home>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="client/app/app.js"></script>
+    <script src="client/app/services.js"></script>
+    <script src="client/app/upload/upload.controller.js"></script>
+    <script src="client/app/upload/upload.module.js"></script>
+    <script src="client/app/home/home.controller.js"></script>
+    <script src="client/app/home/home.module.js"></script>
   </body>
 </html>

@@ -4,11 +4,13 @@
   "description": "",
   "main": "server/bin/www",
   "scripts": {
-    "start": "concurrently \"nodemon -r dotenv/config\" && \"lite-server\""
+    "start": "concurrently \"nodemon -r dotenv/config\" \"lite-server\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/angular": "^1.6.9",
+    "@types/ng-file-upload": "^11.1.34",
     "aws-sdk": "^2.27.0",
     "body-parser": "^1.17.1",
     "dotenv": "^4.0.0",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "concurrently": "^3.4.0",
+    "http-proxy-middleware": "^0.17.4",
     "lite-server": "^2.3.0"
   }
 }

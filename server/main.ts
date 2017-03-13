@@ -8,6 +8,7 @@ import * as morgan from 'morgan';
 import * as path from 'path';
 import routes from './routes/index';
 import * as uploadAPI from './api/upload.api';
+import * as signAPI from './api/sign.api';
 
 let app = express();
 const isDev = app.get('env') === 'development' ? true : false;
@@ -20,10 +21,13 @@ app.use(morgan('dev'));
 
 // view engine setup
 app.set('views', path.join(__dirname, '/views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
+app.engine('html', require('ejs').renderFile);
 
 // static routing
-app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
+app.use('/favicon.ico', express.static(path.join(__dirname, '../client/favicon.ico')));
+app.use('/bower_components', express.static(path.join(__dirname, '../bower_components')));
+app.use('/node_modules', express.static(path.join(__dirname, '..node_modules')));
 app.use('/client', express.static('client'));
 
 // config bodyParser
@@ -36,6 +40,7 @@ app.use('/', routes);
 
 // apis
 app.use('/api', uploadAPI);
+app.use('/api', signAPI);
 
 // THIS IS THE INTERCEPTION OF ALL OTHER REQ
 // After server routes / static / api
