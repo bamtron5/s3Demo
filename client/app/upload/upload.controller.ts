@@ -10,7 +10,8 @@ namespace app.controllers {
     public preview;
     constructor (
       private Upload,
-      private SignService: app.services.SignService
+      private SignService: app.services.SignService,
+      private $http
     ) {
 
     };
@@ -35,21 +36,25 @@ namespace app.controllers {
 
     // SIGN AND VALIDATE FIRST
     public upload (signature) {
-      // `http://s3.amazonaws.com/s3demo-cc/${this.title}`
-      let payload = {
+      var req = {
+        method: 'PUT',
         url: signature.signedRequest,
-        audio: {file: this.file, username: this.username}
+        headers: {
+         'Content-Type': this.file.type
+        },
+        data: this.file
       };
-      this.Upload.upload(payload).then(function (resp) {
-        console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-      }, function (resp) {
-        console.log('Error status: ' + resp.status);
-      }, function (evt) {
-        var progressPercentage = (100.0 * evt.loaded / evt.total);
-        console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-      });
+
+      this.$http(req)
+        .then((response) => {
+          console.log(response);
+          alert('upload success');
+        }).catch((err) => {
+          console.log(err);
+          alert('upload fail');
+        });
     };
   }
 
-  UploadController.$inject = ['Upload', 'SignService'];
+  UploadController.$inject = ['Upload', 'SignService', '$http'];
 }
