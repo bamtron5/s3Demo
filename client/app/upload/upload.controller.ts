@@ -26,7 +26,7 @@ namespace app.controllers {
       this.SignService.sign(config)
         .then((response) => {
           console.log(response);
-          this.preview = response.data.url;
+          this.preview = response.data.url; // LOAD AND SPIN YOUR AUDIO
           this.upload(response.data);
         }).catch((err) => {
           console.log(err);
