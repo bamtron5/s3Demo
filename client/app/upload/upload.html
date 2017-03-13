@@ -1,4 +1,11 @@
-Upload on form submit or button click
+<audio controls>
+  <source ng-src="{{vm.preview}}" type="audio/mp3">
+  <p>Your browser doesn't support HTML5 audio. Here is a <a href="{{vm.preview}}">link to the audio</a> instead.</p>
+</audio>
+
+<a href="{{vm.preview}}">link to the audio</a>
+
+<p>Upload on form submit or button click</p>
 <form name="vm.uploadForm">
   <label>Title</label>
   <input type="text" ng-model="vm.title">
@@ -9,4 +16,4 @@ Upload on form submit or button click
   <button type="submit" ng-click="vm.submit()">Submit</button>
 </form>
 
-Audio preview: <audio controls ngf-src="file"></audio>
+Audio preview: <audio controls ngf-src="vm.preview"></audio>

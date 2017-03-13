@@ -22,6 +22,7 @@ namespace app.controllers {
       }
     };
 
+    // LIMIT YOUR UPLOAD SIZE at AWS and API
     public sign (config: {'fileName': string, 'fileType': string}) {
       this.SignService.sign(config)
         .then((response) => {
@@ -40,7 +41,7 @@ namespace app.controllers {
         method: 'PUT',
         url: signature.signedRequest,
         headers: {
-         'Content-Type': this.file.type
+         'Content-Type': this.file.type // VALIDATE FOR MP3, OGG, WAV <- should compress it
         },
         data: this.file
       };
